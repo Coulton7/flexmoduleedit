@@ -98,6 +98,7 @@ function flexslider_fields_field_formatter_settings_form($field, $instance, $vie
           0 => t('None'),
           1 => t('Image title'),
           'alt' => t('Image ALT attribute'),
+		      3 =>t('Image ALT attribute and Image title'),
         ),
         '#description' => t('You need to <a href="@url">enable the Title field</a> for this image field to be able use it as a caption.', array('@url' => url('admin/structure/types/manage/' . $instance['bundle'] . '/fields/' . $instance['field_name'], array('fragment' => 'edit-instance-settings-title-field', 'query' => array('destination' => 'admin/structure/types/manage/' . $instance['bundle'] . '/display'))))),
       );
@@ -110,6 +111,7 @@ function flexslider_fields_field_formatter_settings_form($field, $instance, $vie
           0 => t('None'),
           1 => t('Image title'),
           'alt' => t('Image ALT attribute'),
+		      3 =>t('Image ALT attribute and Image title'),
         ),
         '#default_value' => $settings['caption'],
       );
@@ -209,6 +211,9 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
       if (isset($item['item']['title'])) {
         $item['slide']['title'] = $item['item']['title'];
       }
+      if (isset($item['item']['alt']['title'])){
+        $item['slide']['title']['alt'] = $item['item']['alt']['title'];
+      }
 
       // Render the slide item.
       if ($display['type'] == 'flexslider') {
@@ -234,6 +239,9 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
       elseif ($display['settings']['caption'] === 'alt') {
         $item['caption'] = filter_xss($item['item']['alt']);
       }
+	    elseif($display['settings']['caption']  ==='3'){
+        $item['caption'] = filter_xss($item)['item']['alt']['title']);
+        }
 
       $items[$key] = $item;
     }
