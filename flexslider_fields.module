@@ -240,7 +240,7 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
         $item['caption'] = filter_xss($item['item']['alt']);
       }
 	    elseif($display['settings']['caption']  ==='3'){
-        $item['caption'] = filter_xss($item)['item']['alt']['title']);
+        $item['caption'] = filter_xss($item['item']['alt']['title']);
         }
 
       $items[$key] = $item;
