@@ -212,7 +212,7 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
         $item['slide']['title'] = $item['item']['title'];
       }
       if (isset($item['item']['alt']['title'])){
-        $item['slide']['title']['alt'] = $item['item']['alt']['title'];
+        $item['slide']['title']['alt'] = $item['item']['title']['alt'];
       }
 
       // Render the slide item.
@@ -239,8 +239,8 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
       elseif ($display['settings']['caption'] === 'alt') {
         $item['caption'] = filter_xss($item['item']['alt']);
       }
-	    elseif($display['settings']['caption']  ==='3'){
-        $item['caption'] = filter_xss($item['item']['alt']['title']);
+	    elseif ($display['settings']['caption']  ==='3'){
+        $item['caption'] = filter_xss($item['item']['title']['alt']);
         }
 
       $items[$key] = $item;
