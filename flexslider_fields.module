@@ -211,7 +211,7 @@ function flexslider_fields_field_formatter_view($entity_type, $entity, $field, $
       if (isset($item['item']['title'])) {
         $item['slide']['title'] = $item['item']['title'];
       }
-      if (isset($item['item']['alt']['title'])){
+      if (isset($item['item']['title']['alt'])){
         $item['slide']['title']['alt'] = $item['item']['title']['alt'];
       }
 
